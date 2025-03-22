@@ -1,11 +1,12 @@
-const zodiacSign = (window.location.hash.substring(1).toLowerCase() || 'aries');
+// Remove the leading '/' from the hash
+const zodiacSign = (window.location.hash.replace(/^#\/?/, '').toLowerCase() || 'aries');
 document.getElementById('zodiac-title').textContent = zodiacSign.toUpperCase();
 const today = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 document.getElementById('date').textContent = today;
 
 async function fetchHoroscope(prompt) {
     try {
-        const response = await fetch('http://localhost:5001/api/horoscope', {  // Update to your proxy URL
+        const response = await fetch('http://localhost:5001/api/horoscope', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt: prompt })
