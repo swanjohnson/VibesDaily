@@ -1,44 +1,56 @@
 body {
+    background-color: #1a1a2e;
+    color: #e6e6e6;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #1a1a2e, #16213e);
-    color: #fff;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 800px;
-    margin: 50px auto;
+    max-width: 600px;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.logo {
+    width: 150px;
+    margin: 20px auto;
+    display: block;
 }
 
 h1 {
-    text-align: center;
-    font-size: 2.5em;
-    color: #e94560;
+    color: #a100ff;
+    font-size: 48px;
+    margin: 10px 0;
+    text-transform: uppercase;
 }
 
 #date {
-    text-align: center;
-    font-size: 1.2em;
-    color: #a8dadc;
+    color: #b0b0b0;
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
-section {
+.horoscope-section {
     margin: 20px 0;
 }
 
-h2 {
-    color: #f1faee;
-    border-bottom: 2px solid #e94560;
-    padding-bottom: 5px;
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
 }
 
-p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #f1faee;
+h2 {
+    color: #a100ff;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+#sun-info, #moon-info, #love-info {
+    color: #a100ff;
+    font-weight: bold;
 }
