@@ -1,4 +1,3 @@
-// Remove the leading '/' from the hash
 const zodiacSign = (window.location.hash.replace(/^#\/?/, '').toLowerCase() || 'aries');
 document.getElementById('zodiac-title').textContent = zodiacSign.toUpperCase();
 const today = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
