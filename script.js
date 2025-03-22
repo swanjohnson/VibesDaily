@@ -5,7 +5,7 @@ document.getElementById('date').textContent = today;
 
 async function fetchHoroscope(prompt) {
     try {
-        const response = await fetch('http://localhost:5001/api/horoscope', {
+        const response = await fetch('https://vibes-daily-proxy-aladpf57q-johns-projects-0aedfb8a.vercel.app/api/horoscope', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt: prompt })
