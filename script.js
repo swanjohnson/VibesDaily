@@ -6,8 +6,8 @@ document.getElementById('zodiac-title').textContent = `${zodiacSign.charAt(0).to
 const today = new Date().toLocaleDateString();
 document.getElementById('date').textContent = today;
 
-// Your xAI API key (replace with your actual key)
-const apiKey = 'YOUR_XAI_API_KEY_HERE';
+// Your xAI API key
+const apiKey = 'xai-RdMHOwRUAORjY4PD302K4v5kOHeSf9lcKMSmP9jNbpTgpphLsRu377stlkvSrXyfTP6fgCP6olVN6Nb2';
 
 // Function to fetch data from xAI API
 async function fetchHoroscope(prompt) {
