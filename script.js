@@ -1,15 +1,13 @@
-// Get the zodiac sign from the URL path (e.g., /virgo)
 const zodiacSign = window.location.pathname.substring(1).toLowerCase() || 'aries';
 document.getElementById('zodiac-title').textContent = `${zodiacSign.charAt(0).toUpperCase() + zodiacSign.slice(1)} VibesDaily Horoscope`;
 const today = new Date().toLocaleDateString();
 document.getElementById('date').textContent = today;
 
-// Your real xAI API key
 const apiKey = 'xai-RdMHOwRUAORjY4PD302K4v5kOHeSf9lcKMSmP9jNbpTgpphLsRu377stlkvSrXyfTP6fgCP6olVN6Nb2';
 
 async function fetchHoroscope(prompt) {
     try {
-        const response = await fetch('https://api.x.ai/v1/chat/completions', {
+        const response = await fetch('https://api.x.ai/v1/grok', {  // Adjust after testing
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,7 +24,7 @@ async function fetchHoroscope(prompt) {
         });
         if (!response.ok) throw new Error(`API request failed: ${response.status}`);
         const data = await response.json();
-        return data.choices[0].message.content.trim();
+        return data.choices[0].message.content.trim();  // May need to be data.text
     } catch (error) {
         console.error('Error:', error);
         return 'Unable to tune into the vibes. Try again later.';
