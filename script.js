@@ -1,9 +1,8 @@
-const zodiacSign = window.location.pathname.substring(1).toLowerCase() || 'aries';
+// Use hash instead of pathname
+const zodiacSign = (window.location.hash.substring(2).toLowerCase() || 'aries');
 document.getElementById('zodiac-title').textContent = `${zodiacSign.charAt(0).toUpperCase() + zodiacSign.slice(1)} VibesDaily Horoscope`;
 const today = new Date().toLocaleDateString();
 document.getElementById('date').textContent = today;
-
-const apiKey = 'xai-RdMHOwRUAORjY4PD302K4v5kOHeSf9lcKMSmP9jNbpTgpphLsRu377stlkvSrXyfTP6fgCP6olVN6Nb2';
 
 async function fetchHoroscope(prompt) {
     try {
@@ -11,7 +10,7 @@ async function fetchHoroscope(prompt) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`
+                'Authorization': 'xai-RdMHOwRUAORjY4PD302K4v5kOHeSf9lcKMSmP9jNbpTgpphLsRu377stlkvSrXyfTP6fgCP6olVN6Nb2'
             },
             body: JSON.stringify({
                 model: 'grok-2-latest',
@@ -26,7 +25,6 @@ async function fetchHoroscope(prompt) {
         });
         if (!response.ok) throw new Error(`API request failed: ${response.status} ${response.statusText}`);
         const data = await response.json();
-        console.log('API Response:', data); // Debug
         return data.choices[0].message.content.trim();
     } catch (error) {
         console.error('Error:', error);
