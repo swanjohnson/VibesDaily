@@ -7,24 +7,27 @@ const apiKey = 'xai-RdMHOwRUAORjY4PD302K4v5kOHeSf9lcKMSmP9jNbpTgpphLsRu377stlkvS
 
 async function fetchHoroscope(prompt) {
     try {
-        const response = await fetch('https://api.x.ai/v1/grok', {  // Adjust after testing
+        const response = await fetch('https://api.x.ai/v1/chat/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: 'grok',
+                model: 'grok-2-latest',
                 messages: [
                     {"role": "system", "content": "You are a cosmic guide providing detailed horoscopes."},
                     {"role": "user", "content": prompt}
                 ],
+                stream: false,
+                temperature: 0,
                 max_tokens: 200
             })
         });
-        if (!response.ok) throw new Error(`API request failed: ${response.status}`);
+        if (!response.ok) throw new Error(`API request failed: ${response.status} ${response.statusText}`);
         const data = await response.json();
-        return data.choices[0].message.content.trim();  // May need to be data.text
+        console.log('API Response:', data); // Debug
+        return data.choices[0].message.content.trim();
     } catch (error) {
         console.error('Error:', error);
         return 'Unable to tune into the vibes. Try again later.';
