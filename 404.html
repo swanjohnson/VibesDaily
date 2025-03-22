@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // Get the last part of the path (e.g., 'virgo' from '/VibesDaily/virgo')
+        const path = window.location.pathname.split('/').filter(Boolean).pop() || 'aries';
+        // Redirect to root with the path as a hash
+        window.location = `/VibesDaily/#/${path}`;
+    </script>
+    <title>Redirecting...</title>
+</head>
+<body>
+    <p>Redirecting to VibesDaily...</p>
+</body>
+</html>
